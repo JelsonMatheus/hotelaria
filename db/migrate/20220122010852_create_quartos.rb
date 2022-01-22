@@ -6,7 +6,7 @@ class CreateQuartos < ActiveRecord::Migration[7.0]
       t.string :descricao, limit: 300, null: false
       t.integer :capacidade, null: false
       t.boolean :reservado, default: false
-      t.belongs_to :hotel, foreign_key: true
+      t.belongs_to :hotel, :clientes, foreign_key: true
 
       t.timestamps
     end
