@@ -5,9 +5,12 @@ class CreateClientes < ActiveRecord::Migration[7.0]
       t.string :cpf, limit:14, null: false
       t.string :telefone, limit:14, null: false
       t.string :email, limit:30, null: false
-      t.belongs_to :reservas, foreign_key: true
 
       t.timestamps
+    end
+
+    change_table :reservas do |t|
+      t.belongs_to :cliente, foreign_key: true, null: false, after: :id
     end
   end
 end

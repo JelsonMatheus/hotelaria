@@ -1,3 +1,3 @@
 class Hotel < ApplicationRecord
-    has_many :quarto
+    has_many :quartos
 end

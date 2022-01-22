@@ -7,6 +7,7 @@ class CreateHotels < ActiveRecord::Migration[7.0]
       t.string :cidade, limit:150, null: false
       t.string :estado, limit:150, null: false
       t.string :rua, limit:200, null: false
+      
       t.timestamps
     end
   end
