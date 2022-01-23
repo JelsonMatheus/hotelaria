@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :hotel
-    #O restante vem aqui
+    resources :reserva
   end
 
 end
