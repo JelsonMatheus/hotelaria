@@ -1,75 +1,98 @@
 // Custom bootstrap variables must be set or imported *before* bootstrap.
-@import "bootstrap";
+@import 'bootstrap';
 
 /********** Colors ***********/
-$color-burgundy: #733434;  
-$color-burgundy-dark: #5E231F;
-$color-brown: #A6705D;
+$color-burgundy: #733434;
+$color-burgundy-dark: #5e231f;
+$color-brown: #a6705d;
 
 $text-golden-light: #fde4c1;
-
 
 /********* Dimensions ********/
 $navbar-height: 3rem;
 
-
-
 /********* Styles default **********/
 
-body { height: 100vh; }
+body {
+  height: 100vh;
+}
 
-.wrapper { height: calc(100% - #{$navbar-height}) }
-.wrapper > .row { height: auto; }
+.wrapper {
+  height: calc(100% - #{$navbar-height});
+}
+.wrapper > .row {
+  height: auto;
+}
 
 .navbar {
-    height: $navbar-height;
-    background: $color-burgundy-dark !important;
+  height: $navbar-height;
+  background: $color-burgundy-dark !important;
 }
 .navbar-brand {
-    height: $navbar-height;
-    color: $text-golden-light !important;
-    background: $color-burgundy;
-    font-size: 1rem;
+  height: $navbar-height;
+  color: $text-golden-light !important;
+  background: $color-burgundy;
+  font-size: 1rem;
 }
-.navbar-toggler-icon { font-size: 0.8rem;}
+.navbar-toggler-icon {
+  font-size: 0.8rem;
+}
 
-.logo > img{ height: $navbar-height;}
+.logo > img {
+  height: $navbar-height;
+}
 
 .module-bar {
-    background: $color-burgundy-dark;
-    color: $text-golden-light;
-
+  background: $color-burgundy-dark;
+  color: $text-golden-light;
 }
 .morcego-icon {
-    top: -0.5rem;
-    right: 0;
-    width: 80px;
-    z-index: 0;
+  top: -0.5rem;
+  right: 0;
+  width: 80px;
+  z-index: 0;
 }
 
-#sidebarMenu .nav-link { color: white; }
+#sidebarMenu .nav-link {
+  color: white;
+}
 
 #sidebarMenu .nav-link.active {
-    background: $color-brown;
-    color: black;
+  background: $color-brown;
+  color: black;
 }
 #sidebarMenu .nav-link:hover {
-    background: $color-brown;
-    color: black;
+  background: $color-brown;
+  color: black;
 }
-
+.table > thead {
+  background: $color-brown;
+}
+.page-item.active .page-link {
+  border: black;
+  background: $color-brown !important;
+}
+.page-item .page-link {
+  color: black;
+}
 
 /* Small devices (landscape phones, bigger then than 576px) */
 
 @include media-breakpoint-up(sm) {
-    main > .container { border: 1px solid $border-color;}
+  main > .container {
+    border: 1px solid $border-color;
+  }
 
-    .navbar-brand { font-size: 1.4rem;}
+  .navbar-brand {
+    font-size: 1.4rem;
+  }
 
-    .wrapper > .row { height: 100%; }
-    
-    .morcego-icon {
-        top: -0.9rem;
-        width: 100px;
-    }
+  .wrapper > .row {
+    height: 100%;
+  }
+
+  .morcego-icon {
+    top: -0.9rem;
+    width: 100px;
+  }
 }
