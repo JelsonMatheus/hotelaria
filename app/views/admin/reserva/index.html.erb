@@ -6,24 +6,22 @@
       <thead>
         <tr>
           <th scope="col" width="50px">#</th>
-          <th scope="col">First</th>
-          <th scope="col">Last</th>
-          <th scope="col">Handle</th>
+          <th scope="col">Hóspede</th>
+          <th scope="col">Hotel/Quarto</th>
+          <th scope="col">Check-in</th>
+          <th scope="col">Check-out</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
+        <% @reservas.each_with_index do |item, i| %>
+          <tr>
+            <th scope="row"><%= "#{i}" %></th>
+            <td><%= item.cliente.nome%></td>
+            <td><%= show_hotel_quarto(item) %></td>
+            <td><%= datatime_br(item.check_in) %></td>
+            <td><%= datatime_br(item.check_out) %></td>
+          </tr>
+        <% end %>
       </tbody>
     </table>
   </div>

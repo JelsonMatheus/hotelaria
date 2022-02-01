@@ -3,5 +3,6 @@ class Admin::ReservaController < ApplicationController
 
     def index
         @modulo = "Lista de Reservas"
+        @reservas = Reserva.all
     end
 end
