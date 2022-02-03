@@ -4,7 +4,7 @@ class Admin::HotelController < ApplicationController
     
     def index
         @modulo = "Lista de Hotéis"
-        @hoteis = Hotel.all
+        @hoteis = Hotel.all.page params[:page]
     end
 
 end
