@@ -1,0 +1,32 @@
+<% content_for :main do %>
+  <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nome</th>
+      <th scope="col">CPF</th>
+      <th scope="col">Telefone</th>
+      <th scope="col">Email</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @hospede.each_with_index do |item, i| %>
+      <tr>
+        <th scope="row"><%= "#{i}" %></th>
+        <td><%= item.nome%></td>
+        <td><%= item.cpf%></td>
+        <td><%= item.telefone%></td>
+        <td><%= item.email%></td>
+        <td>
+          <button type="button"  class="btn"> 
+            <i class="bi bi-trash"></i>
+          </button></td>
+      </tr>
+    <% end %>
+  </tbody>
+
+</table>
+<%# <%= render "shared/pagination_admin" %>
+<%= paginate @hospede, window: 2 %>
+<% end %>
