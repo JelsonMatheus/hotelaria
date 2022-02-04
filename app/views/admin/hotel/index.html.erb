@@ -1,4 +1,10 @@
 <% content_for :main do %>
+  <div class="p-3 d-flex">
+    <%= render "shared/button_create", locals: {nome: "Novo Hotel"} %>
+    <div class="ms-3">
+      <%= render "shared/button_export"%>
+    </div>
+  </div>
   <table class="table table-striped">
   <thead>
     <tr>

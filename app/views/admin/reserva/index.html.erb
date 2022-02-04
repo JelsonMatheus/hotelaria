@@ -1,6 +1,12 @@
 <% content_for :title do %> Lista de reservas<% end %>
 
 <% content_for :main do %>
+  <div class="p-3 d-flex">
+    <%= render "shared/button_create", locals: {nome: "Nova Reserva"} %>
+    <div class="ms-3">
+      <%= render "shared/button_export"%>
+    </div>
+  </div>
   <div>
     <table class="table">
       <thead>
@@ -26,7 +32,7 @@
     </table>
   </div>
   <div>
-    <%= paginate @hospede, window: 2 %>
+    <%= paginate @reservas, window: 2 %>
   </div>
-
+  <%= render "shared/modal_delete" %>
 <% end %>

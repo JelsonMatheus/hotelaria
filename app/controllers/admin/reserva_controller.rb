@@ -3,6 +3,6 @@ class Admin::ReservaController < ApplicationController
 
     def index
         @modulo = "Lista de Reservas"
-        @reservas = Reserva.all
+        @reservas = Reserva.all.page params[:page]
     end
 end

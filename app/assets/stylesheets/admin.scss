@@ -76,6 +76,12 @@ body {
   color: black;
 }
 
+.btn-create,.btn-export{
+  background: $color-burgundy-dark;
+}
+.btn-create:hover,.btn-export:hover{
+  background: $color-brown;
+}
 /* Small devices (landscape phones, bigger then than 576px) */
 
 @include media-breakpoint-up(sm) {
@@ -96,3 +102,4 @@ body {
     width: 100px;
   }
 }
+
