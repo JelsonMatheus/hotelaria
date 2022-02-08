@@ -1,6 +1,6 @@
 <% content_for :main do %>
   <div class="py-3 d-flex">
-    <%= render "shared/button_create", locals: {nome: "Novo Hospede"} %>
+    <%= render "shared/button_create", locals: {nome: "Novo Hospede", url: new_admin_hospede_path} %>
     <div class="ms-3 ">
       <%= render "shared/button_export"%>
     </div>
@@ -26,7 +26,7 @@
         <td><%= item.telefone%></td>
         <td><%= item.email%></td>
         <td>
-          <button type="button"  class="btn btn-delete" data-url='<%="/admin/hospede/#{item.id}"%>' > 
+          <button type="button"  class="btn btn-delete" data-url='<%=admin_hospede_path(item)%>' > 
             <i class="bi bi-trash"></i>
           </button></td>
       </tr>

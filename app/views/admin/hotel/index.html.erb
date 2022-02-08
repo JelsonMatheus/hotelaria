@@ -25,7 +25,7 @@
         <td><%= item.pais %></td>
         <td><%= exibir_endereco(item)%></td>
         <td>
-          <button type="button"  class="btn"> 
+          <button type="button"  class="btn btn-delete" data-url='<%=admin_hotel_path(item)%>' >
             <i class="bi bi-trash"></i>
           </button></td>
       </tr>
@@ -37,5 +37,7 @@
 <div>
   <%= paginate @hoteis, window: 2 %>
 </div>
+
+<%= render "shared/modal_delete" %>
 
 <% end %>
