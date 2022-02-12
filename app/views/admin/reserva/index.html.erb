@@ -2,7 +2,7 @@
 
 <% content_for :main do %>
   <div class="py-3 d-flex">
-    <%= render "shared/button_create", locals: {nome: "Nova Reserva"} %>
+    <%= render "shared/button_create", locals: {nome: "Nova Reserva", url: new_admin_reserva_path} %>
     <div class="ms-3">
       <%= render "shared/button_export"%>
     </div>

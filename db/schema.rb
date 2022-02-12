@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2022_01_22_023243) do
 
   create_table "hotels", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "nome", limit: 200, null: false
-    t.string "telefone", limit: 14, null: false
+    t.string "telefone", limit: 20, null: false
     t.string "pais", limit: 150, null: false
     t.string "cidade", limit: 150, null: false
     t.string "estado", limit: 150, null: false
