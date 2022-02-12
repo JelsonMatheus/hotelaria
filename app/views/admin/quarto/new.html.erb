@@ -1,0 +1,5 @@
+<% content_for :main do %>
+    <div class="p-5">
+      <%= render partial: "form", locals: {quarto: @quarto, url:admin_quarto_index_path}  %>
+    </div>
+<% end %>

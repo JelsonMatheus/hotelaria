@@ -1,0 +1,7 @@
+<%= form_with model: hospede, url:url	 do |f|%>
+    <div class="mb-3">
+      <%= f.label :nome, "Nome", class:"form-label" %>
+      <%= f.text_field :nome, class:"form-control" %>
+    </div>
+    <%= f.submit "Salvar", class:"btn btn-primary" %>
+  <% end %>
