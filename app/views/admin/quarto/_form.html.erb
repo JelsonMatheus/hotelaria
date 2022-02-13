@@ -1,11 +1,11 @@
 <%= form_with model: quarto, url:url	 do |f|%>
     <div class="mb-3">
       <%= f.label :hotel, "Hotel", class:"form-label" %>
-      <%= f.collection_select(:hotel_id, Hotel.all, :id, :nome, class:"form-select") %>
+      <%= f.collection_select(:hotel_id, Hotel.all, :id, :nome, {}, {class:"form-select"}) %>
     </div>
     <div class="mb-3">
       <%= f.label :quarto_tipo, "Quarto tipo", class:"form-label" %>
-      <%= f.collection_select(:quarto_tipo_id, QuartoTipo.all, :id, :nome, class:"form-select")%>
+      <%= f.collection_select(:quarto_tipo_id, QuartoTipo.all, :id, :nome, {}, {class:"form-select"})%>
     </div>
     <div class="mb-3">
       <%= f.label :numero, "Numero", class:"form-label" %>

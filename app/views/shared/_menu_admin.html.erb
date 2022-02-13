@@ -30,10 +30,9 @@
 </h6>
 <ul class="nav flex-column mb-2">
   <li class="nav-item">
-    <a class="nav-link text-danger bg-transparent" href="#">
+    <%= link_to(destroy_user_session_path(), method: :delete, class: "nav-link text-danger bg-transparent") do%>
       <i class="bi bi-door-closed-fill me-1"></i>
-      Logout
-    </a>
-    <%= link_to "Sing out", destroy_user_session_path, method: :delete %>
+      Logout 
+    <%end%>
   </li>
 </ul>
