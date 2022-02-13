@@ -15,6 +15,8 @@ gem 'bootstrap', '~> 5.1.3'
 
 gem 'kaminari', '~> 1.2', '>= 1.2.2'
 
+gem 'devise', '~> 4.8', '>= 4.8.1'
+
 # Dependências adicionais FIM
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
