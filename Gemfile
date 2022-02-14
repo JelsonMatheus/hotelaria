@@ -17,6 +17,10 @@ gem 'kaminari', '~> 1.2', '>= 1.2.2'
 
 gem 'devise', '~> 4.8', '>= 4.8.1'
 
+gem 'prawn', '~> 2.4'
+
+gem 'prawn-table'
+
 # Dependências adicionais FIM
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]

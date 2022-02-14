@@ -4,13 +4,16 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  root "admin/hotel#index"
+  root to: redirect('/admin/hotel')
 
 
   # devise_for :users, :sign_out_via => [ :get ]
 
   namespace :admin do
-    resources :hotel
+    resources :hotel do
+      get 'export', on: :collection
+    end
+
     resources :reserva
     resources :hospede
     resources :quarto
