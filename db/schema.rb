@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2022_02_13_001319) do
     t.integer "numero", null: false
     t.string "descricao", limit: 300, null: false
     t.integer "capacidade", null: false
-    t.decimal "preco", precision: 5, scale: 2, null: false
+    t.decimal "preco", precision: 20, scale: 4, null: false
     t.boolean "reservado", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 2022_02_13_001319) do
     t.datetime "data_reserva", precision: 6, null: false
     t.datetime "check_in", precision: 6, null: false
     t.datetime "check_out", precision: 6, null: false
-    t.integer "preco_total", null: false
+    t.decimal "preco", precision: 20, scale: 4, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["cliente_id"], name: "index_reservas_on_cliente_id"

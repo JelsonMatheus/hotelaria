@@ -1,6 +1,6 @@
 function set_url(url){
-  const btn = document.querySelector("[data-method='delete']");
-  btn.href=url;
+  const btn = document.querySelector(".modal-btn-delete");
+  btn.href = url;
 }
 
 window.addEventListener("load", () => {
