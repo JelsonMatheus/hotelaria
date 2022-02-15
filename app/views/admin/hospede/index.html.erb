@@ -14,7 +14,7 @@
         <th scope="col">CPF</th>
         <th scope="col">Telefone</th>
         <th scope="col">Email</th>
-        <th scope="col"></th>
+        <th scope="col" width="10%"></th>
       </tr>
     </thead>
   <tbody>
@@ -28,7 +28,11 @@
         <td>
           <button type="button"  class="btn btn-delete" data-url='<%=admin_hospede_path(item)%>' > 
             <i class="bi bi-trash"></i>
-          </button></td>
+          </button>
+          <%= link_to(edit_admin_hospede_path(item), class: 'btn') do %>
+            <i class="bi bi-pencil-square"></i>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>

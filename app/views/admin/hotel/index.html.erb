@@ -13,7 +13,7 @@
       <th scope="col">Quarto</th>
       <th scope="col">País</th>
       <th scope="col">Endereço</th>
-      <th scope="col"></th>
+      <th scope="col" width="10%"></th>
     </tr>
   </thead>
   <tbody>
@@ -27,7 +27,11 @@
         <td>
           <button type="button"  class="btn btn-delete" data-url='<%=admin_hotel_path(item)%>' >
             <i class="bi bi-trash"></i>
-          </button></td>
+          </button>
+          <%= link_to(edit_admin_hotel_path(item), class: 'btn') do %>
+            <i class="bi bi-pencil-square"></i>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>

@@ -16,6 +16,7 @@
           <th scope="col">Hotel/Quarto</th>
           <th scope="col">Check-in</th>
           <th scope="col">Check-out</th>
+          <th scope="col" width="10%"></th>
         </tr>
       </thead>
       <tbody>
@@ -26,6 +27,14 @@
             <td><%= show_hotel_quarto(item) %></td>
             <td><%= datatime_br(item.check_in) %></td>
             <td><%= datatime_br(item.check_out) %></td>
+            <td>
+              <button type="button"  class="btn btn-delete" data-url='<%=admin_quarto_path(item)%>' >
+                <i class="bi bi-trash"></i>
+              </button>
+              <%= link_to(edit_admin_reserva_path(item), class: 'btn') do %>
+                <i class="bi bi-pencil-square"></i>
+              <% end %>
+            </td>
           </tr>
         <% end %>
       </tbody>
