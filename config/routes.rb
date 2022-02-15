@@ -14,9 +14,16 @@ Rails.application.routes.draw do
       get 'export', on: :collection
     end
 
-    resources :reserva
-    resources :hospede
-    resources :quarto
+    resources :reserva do
+      get 'export', on: :collection
+    end
+    resources :hospede do
+      get 'export', on: :collection
+    end
+    resources :quarto do
+      get 'export', on: :collection
+    end
+    
   end
   
 

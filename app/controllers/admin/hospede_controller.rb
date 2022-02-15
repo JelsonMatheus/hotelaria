@@ -1,3 +1,6 @@
+require_relative '../../reports/generate_pdf'
+require_relative '../../reports/generate_csv'
+
 class Admin::HospedeController < ApplicationController
     layout "admin"
     
@@ -43,8 +46,42 @@ class Admin::HospedeController < ApplicationController
       end
     end
 
+    def export
+      @hospedes = Cliente.all
+  
+      respond_to do |format|
+        format.pdf do
+          send_pdf
+        end
+        format.csv do
+          send_csv
+        end
+
+      end
+    end
+
+    
     private
-        def hospede_params
-           params.require(:cliente).permit(:nome, :telefone, :cpf, :email)
-        end   
+      def hospede_params
+        params.require(:cliente).permit(:nome, :telefone, :cpf, :email)
+      end   
+
+      def send_pdf
+        colsname = {nome: 'Nome', telefone: 'Telefone', cpf:'CPF', email:'Email'}
+        widths = [135, 135, 135, 135]
+
+        relatorio = GeneratePdf.new("Lista de Hospedes", @hospedes, colsname, widths)
+        pdf = relatorio.pdf
+        send_data(pdf, filename: 'relatorio.pdf', type: 'application/pdf', disposition: :inline)
+      end
+
+      def send_csv
+        colsname = {nome: 'Nome', telefone: 'Telefone', cpf:'CPF'}
+
+        relatorio = GenerateCsv.new( @hospedes, colsname)
+        csv = relatorio.csv
+        send_data(csv, filename:'relatorio.csv', type:'text/csv')
+    end
+
+
 end

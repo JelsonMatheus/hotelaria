@@ -1,4 +1,5 @@
 require_relative '../../reports/generate_pdf'
+require_relative '../../reports/generate_csv'
 
 class Admin::HotelController < ApplicationController
 
@@ -52,6 +53,9 @@ class Admin::HotelController < ApplicationController
             format.pdf do
                 send_pdf
             end
+            format.csv do
+                send_csv
+            end
         end
     end
 
@@ -61,11 +65,21 @@ class Admin::HotelController < ApplicationController
         end
 
         def send_pdf
-            colsname = {nome: 'Nome', telefone: 'Telefone'}
-            widths = [100, 100]
+            colsname = {nome: 'Nome', telefone: 'Telefone', pais:'País', cidade:'Cidade', estado:'Estado', rua:'Rua'}
+            widths = [90,90,90,90,90,90]
 
             relatorio = GeneratePdf.new("Lista de Hoteis", @hotel, colsname, widths)
             pdf = relatorio.pdf
             send_data(pdf, filename: 'relatorio.pdf', type: 'application/pdf', disposition: :inline)
         end
+
+        def send_csv
+            colsname = {nome: 'Nome', telefone: 'Telefone', pais:'Pais'}
+
+            relatorio = GenerateCsv.new( @hotel, colsname)
+            csv = relatorio.csv
+            send_data(csv, filename:'relatorio.csv', type:'text/csv')
+        end
+
+           
 end

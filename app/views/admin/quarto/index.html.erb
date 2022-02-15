@@ -2,7 +2,7 @@
   <div class="py-3 d-flex">
     <%= render "shared/button_create", locals: {nome: "Novo Quarto", url:new_admin_quarto_path() } %>
     <div class="ms-3">
-      <%= render "shared/button_export"%>
+      <%= render partial: "shared/button_export", locals: {url: -> (f){export_admin_quarto_index_path(format:f)}} %>
     </div>
   </div>
   <table class="table table-striped">
