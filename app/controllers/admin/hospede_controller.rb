@@ -7,7 +7,7 @@ class Admin::HospedeController < ApplicationController
     def index
         @modulo = "Lista de Hospedes"
         @hospede = Cliente.all.page params[:page]
-    
+        @hospede  = @hospede.filter_by_starts_with(params[:nome]) if params[:nome].present?
     end
 
     def show
@@ -20,6 +20,7 @@ class Admin::HospedeController < ApplicationController
     end
 
     def new
+        @modulo = "Adicionar Hospedes"
         @hospede = Cliente.new
     end
 
@@ -33,6 +34,7 @@ class Admin::HospedeController < ApplicationController
     end 
 
     def edit
+        @modulo = "Editar Hospedes"
         @hospede = Cliente.find(params[:id])
     end
   
@@ -48,6 +50,7 @@ class Admin::HospedeController < ApplicationController
 
     def export
       @hospedes = Cliente.all
+      @hospede  = @hospede.filter_by_starts_with(params[:nome]) if params[:nome].present?
   
       respond_to do |format|
         format.pdf do

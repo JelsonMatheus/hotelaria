@@ -1,4 +1,18 @@
 <% content_for :main do %>
+
+  <div class="py-3">
+    <span>Filtros</span>
+    <%= form_with url: admin_hotel_index_path, method: :get do |form| %>
+      <div class="px-3 py-2 border d-flex">
+        <div class="mb-3 me-2">
+          <%= form.label :nome, "Nome:", class: "form-label"%>
+          <%= form.text_field :nome, :value=>params[:nome], class: "form-control" %>
+        </div>
+        <%= form.submit "Search", class: "mt-3 btn btn-primary align-self-center"%>
+      </div>
+    <% end %>
+  </div>
+
   <div class="py-3 d-flex">
     <%= render "shared/button_create", locals: {nome: "Novo Hotel", url:new_admin_hotel_path() } %>
     <div class="ms-3">
@@ -13,7 +27,7 @@
       <th scope="col">Quarto</th>
       <th scope="col">País</th>
       <th scope="col">Endereço</th>
-      <th scope="col"></th>
+      <th scope="col" width="15%"></th>
     </tr>
   </thead>
   <tbody>
@@ -27,7 +41,11 @@
         <td>
           <button type="button"  class="btn btn-delete" data-url='<%=admin_hotel_path(item)%>' >
             <i class="bi bi-trash"></i>
-          </button></td>
+          </button>
+          <%= link_to(edit_admin_hotel_path(item), class: 'btn') do %>
+            <i class="bi bi-pencil-square"></i>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>

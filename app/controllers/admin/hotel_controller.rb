@@ -8,6 +8,7 @@ class Admin::HotelController < ApplicationController
     def index
         @modulo = "Lista de Hotéis"
         @hoteis = Hotel.all.page params[:page]
+        @hoteis  = @hoteis.filter_by_starts_with(params[:nome]) if params[:nome].present?
     end
 
     def show
@@ -20,6 +21,7 @@ class Admin::HotelController < ApplicationController
     end
 
     def new
+        @modulo = "Adicionar Hotéis"
         @hotel = Hotel.new
     end
 
@@ -33,6 +35,7 @@ class Admin::HotelController < ApplicationController
     end 
 
     def edit
+        @modulo = "Editar Hotéis"
         @hotel = Hotel.find(params[:id])
     end
   
@@ -47,7 +50,8 @@ class Admin::HotelController < ApplicationController
     end
 
     def export
-        @hotel = Hotel.all
+        @hoteis = Hotel.all
+        @hoteis  = @hoteis.filter_by_starts_with(params[:nome]) if params[:nome].present?
 
         respond_to do |format|
             format.pdf do
@@ -68,7 +72,7 @@ class Admin::HotelController < ApplicationController
             colsname = {nome: 'Nome', telefone: 'Telefone', pais:'País', cidade:'Cidade', estado:'Estado', rua:'Rua'}
             widths = [90,90,90,90,90,90]
 
-            relatorio = GeneratePdf.new("Lista de Hoteis", @hotel, colsname, widths)
+            relatorio = GeneratePdf.new("Lista de Hoteis", @hoteis, colsname, widths)
             pdf = relatorio.pdf
             send_data(pdf, filename: 'relatorio.pdf', type: 'application/pdf', disposition: :inline)
         end
@@ -76,7 +80,7 @@ class Admin::HotelController < ApplicationController
         def send_csv
             colsname = {nome: 'Nome', telefone: 'Telefone', pais:'Pais'}
 
-            relatorio = GenerateCsv.new( @hotel, colsname)
+            relatorio = GenerateCsv.new( @hoteis, colsname)
             csv = relatorio.csv
             send_data(csv, filename:'relatorio.csv', type:'text/csv')
         end

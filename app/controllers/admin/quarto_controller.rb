@@ -3,9 +3,11 @@ require_relative '../../reports/generate_csv'
 
 class Admin::QuartoController < ApplicationController
   layout "admin"
+
   def index 
     @modulo = "Lista de Quartos"
     @quartos = Quarto.all.page params[:page]
+    @quartos  = @quartos.filter_by_hotel(params[:hotel_id]) if params[:hotel_id].present?
   end
 
   def new
@@ -39,6 +41,7 @@ class Admin::QuartoController < ApplicationController
 
   def export
     @quartos = Quarto.all
+    @quartos  = @quartos.filter_by_hotel(params[:hotel_id]) if params[:hotel_id].present?
 
     respond_to do |format|
       format.pdf do

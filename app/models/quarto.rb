@@ -5,4 +5,5 @@ class Quarto < ApplicationRecord
     has_many :clientes, through: :reservas, :dependent => :delete_all 
 
     scope :quarto_livre, -> { where(reservado: false) }
+    scope :filter_by_hotel, -> (hotel_id) { where hotel_id: hotel_id }
 end
