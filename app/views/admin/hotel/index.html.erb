@@ -1,0 +1,43 @@
+<% content_for :main do %>
+  <div class="py-3 d-flex">
+    <%= render "shared/button_create", locals: {nome: "Novo Hotel", url:new_admin_hotel_path() } %>
+    <div class="ms-3">
+      <%= render partial: "shared/button_export", locals: {url: -> (f){export_admin_hotel_index_path(format:f)}} %>
+    </div>
+  </div>
+  <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Quarto</th>
+      <th scope="col">País</th>
+      <th scope="col">Endereço</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @hoteis.each_with_index do |item, i| %>
+      <tr>
+        <th scope="row"><%= "#{i}" %></th>
+        <td><%= item.nome%></td>
+        <td><%= item.quartos.count %></td>
+        <td><%= item.pais %></td>
+        <td><%= exibir_endereco(item)%></td>
+        <td>
+          <button type="button"  class="btn btn-delete" data-url='<%=admin_hotel_path(item)%>' >
+            <i class="bi bi-trash"></i>
+          </button></td>
+      </tr>
+    <% end %>
+  </tbody>
+
+</table>
+
+<div>
+  <%= paginate @hoteis, window: 2 %>
+</div>
+
+<%= render "shared/modal_delete" %>
+
+<% end %>

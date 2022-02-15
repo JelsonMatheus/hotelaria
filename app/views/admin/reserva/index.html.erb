@@ -1,0 +1,38 @@
+<% content_for :title do %> Lista de reservas<% end %>
+
+<% content_for :main do %>
+  <div class="py-3 d-flex">
+    <%= render "shared/button_create", locals: {nome: "Nova Reserva", url: new_admin_reserva_path} %>
+    <div class="ms-3">
+      <%= render partial: "shared/button_export", locals: {url: -> (f){export_admin_reserva_index_path(format:f)}}%>
+    </div>
+  </div>
+  <div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col" width="50px">#</th>
+          <th scope="col">Hóspede</th>
+          <th scope="col">Hotel/Quarto</th>
+          <th scope="col">Check-in</th>
+          <th scope="col">Check-out</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @reservas.each_with_index do |item, i| %>
+          <tr>
+            <th scope="row"><%= "#{i}" %></th>
+            <td><%= item.cliente.nome%></td>
+            <td><%= show_hotel_quarto(item) %></td>
+            <td><%= datatime_br(item.check_in) %></td>
+            <td><%= datatime_br(item.check_out) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div>
+    <%= paginate @reservas, window: 2 %>
+  </div>
+  <%= render "shared/modal_delete" %>
+<% end %>

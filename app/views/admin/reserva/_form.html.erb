@@ -1,0 +1,34 @@
+<%= form_with model: reserva, url:url	 do |f|%>
+  <div class="mb-3">
+    <%= f.label :quarto, "Quarto", class:"form-label" %>
+    <%= f.collection_select(:quarto_id, Quarto.quarto_livre, :id, :numero, {} , {class: "form-select"})%>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :data_reserva, "Data da Reserva", class:"form-label" %>
+    <%= f.date_field :data_reserva, class:"form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :check_in, "Check In", class:"form-label" %>
+    <%= f.date_field :check_in, class:"form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :check_out, "Check Out", class:"form-label" %>
+    <%= f.date_field :check_out, class:"form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :preco_total, "Preço", class:"form-label" %>
+    <%= f.text_field :preco_total, class:"form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :cliente, "Cliente", class:"form-label" %>
+    <%= f.collection_select(:cliente_id, Cliente.all, :id, :nome, {}, {class:"form-select"}) %>
+  </div>
+
+
+  <%= f.submit "Salvar", class:"btn btn-primary" %>
+<% end %>
