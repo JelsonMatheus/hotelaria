@@ -11,6 +11,8 @@ gem 'dotenv-rails', '~> 2.7', '>= 2.7.6'
 
 gem 'jquery-rails'
 
+gem 'jquery_mask_rails', '~> 0.1.0'
+
 gem 'bootstrap', '~> 5.1.3'
 
 gem 'kaminari', '~> 1.2', '>= 1.2.2'

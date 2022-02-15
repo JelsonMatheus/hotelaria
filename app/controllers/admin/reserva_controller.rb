@@ -6,8 +6,11 @@ class Admin::ReservaController < ApplicationController
     def index
         @modulo = "Lista de Reservas"
         @reservas = Reserva.all.page params[:page]
+        @reservas  = @reservas.filter_by_cliente(params[:cliente_id]) if params[:cliente_id].present?
     end
+
     def new
+        @modulo = "Adicionar Reservas"
         @reserva = Reserva.new
     end
 
@@ -24,6 +27,7 @@ class Admin::ReservaController < ApplicationController
     end 
 
     def edit
+        @modulo = "Editar Reservas"
         @reserva = Reserva.find(params[:id])
     end
   
@@ -39,7 +43,8 @@ class Admin::ReservaController < ApplicationController
 
     def export
       @reservas = Reserva.all
-  
+      @reservas  = @reservas.filter_by_cliente(params[:cliente_id]) if params[:cliente_id].present?
+      
       respond_to do |format|
         format.pdf do
           send_pdf
