@@ -1,5 +1,5 @@
 <% content_for :main do %>
   <div class="p-5">
-    <%= render partial: "form", locals: {reserva: @reserva, url:admin_reserva_index_path}  %>
+    <%= render partial: "form", locals: {reserva: @reserva, url:admin_reserva_path(@reserva)}  %>
   </div>
 <% end %>

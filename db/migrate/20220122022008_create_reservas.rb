@@ -5,7 +5,7 @@ class CreateReservas < ActiveRecord::Migration[7.0]
       t.datetime :data_reserva, null: false
       t.datetime :check_in, null: false
       t.datetime :check_out, null: false
-      t.integer :preco_total, null: false
+      t.decimal :preco, precision: 20, scale: 4, null: false
       
       t.timestamps
     end

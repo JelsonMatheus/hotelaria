@@ -12,7 +12,7 @@ class CreateQuartos < ActiveRecord::Migration[7.0]
       t.integer :numero, null: false
       t.string :descricao, limit: 300, null: false
       t.integer :capacidade, null: false
-      t.decimal :preco, precision: 5, scale: 2, null: false
+      t.decimal :preco, precision: 20, scale: 4, null: false
       t.boolean :reservado, default: false, null: false
       
       t.timestamps
