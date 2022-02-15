@@ -1,6 +1,5 @@
 function set_url(url){
   const btn = document.querySelector(".modal-btn-delete");
-  console.log(btn);
   btn.href = url;
 }
 
