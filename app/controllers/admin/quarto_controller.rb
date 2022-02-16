@@ -28,6 +28,10 @@ class Admin::QuartoController < ApplicationController
     @modulo = "Editar Quarto"
     @quarto = Quarto.find(params[:id])
   end
+  def destroy
+    Quarto.find_by(id: params[:id]).destroy
+    redirect_to admin_quarto_index_path
+end
 
   def update
     @quarto = Quarto.find(params[:id])
