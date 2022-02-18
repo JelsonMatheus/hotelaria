@@ -23,7 +23,7 @@ gem 'prawn', '~> 2.4'
 
 gem 'prawn-table'
 
-gem "rake", "~> 13.0"
+# gem "rake", "~> 13.0"
 
 # Dependências adicionais FIM
 
